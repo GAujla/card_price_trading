@@ -1,0 +1,64 @@
+{
+  "name": "card_price_trading",
+
+  "build": {
+    "context": "..",
+    "dockerfile": "../Dockerfile",
+    "args": { "VERSION": "22.04" }
+  },
+
+  "service": null,
+  "containerUser": "card_price_trading",
+
+
+
+  "runArgs": ["--gpus", "all"],
+
+  "workspaceFolder": "/card_price_trading",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "installOhMyZsh": true,
+      "installOhMyZshConfig": true,
+      "configureZshAsDefaultShell": true,
+      "username": "card_price_trading",
+      "userUid": "1000",
+      "userGid": "1000"
+    },
+    "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+      "username": "card_price_trading",
+      "plugins": "git zsh-autosuggestions zsh-syntax-highlighting zsh-autocomplete zsh-completions",
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions.git https://github.com/zsh-users/zsh-syntax-highlighting.git https://github.com/marlonrichert/zsh-autocomplete.git https://github.com/zsh-users/zsh-completions.git"
+    },
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+    "ghcr.io/iterative/features/nvtop:1": {}
+  },
+
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/card_price_trading/.ssh,type=bind"
+  ],
+
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "charliermarsh.ruff",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "tamasfe.even-better-toml",
+        "ms-python.autopep8",
+        "njpwerner.autodocstring",
+        "bierner.markdown-mermaid",
+        "rogalmic.bash-debug",
+        "mads-hartman.bash-ide-vscode",
+        "ms-azuretools.vscode-docker",
+        "DavidAnson.vscode-markdownlint",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "ms-tools.jupyter",
+        "ritwickdey.LiveServer"
+      ]
+    }
+  }
+}
